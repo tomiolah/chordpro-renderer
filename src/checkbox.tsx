@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Checkbox = ({
   label,
   name,
@@ -9,7 +7,7 @@ export const Checkbox = ({
   label?: string;
   name?: string;
   checked?: boolean;
-  onChange: (newVal) => void;
+  onChange: (newVal: boolean) => void;
 }) => (
   <div className="flex flex-row gap-2 items-center">
     <label>{label ?? ''}</label>
