@@ -51,19 +51,17 @@ export default function App() {
 
   return (
     <div className="flex flex-row h-full w-full">
-      <div className="w-1/2 p-4 flex flex-col gap-5 border border-r-2 border-black">
-        <div className="flex flex-col gap-2 h-1/5">
-          <label>ChordPro Markup</label>
-          <textarea
-            className="w-full font-mono text-xs h-full"
-            value={chordProText ?? ''}
-            onChange={(e) =>
-              setChordProText(
-                e.target.value === '' ? undefined : e.target.value,
-              )
-            }
-          />
-        </div>
+      <div className="w-1/2 p-4 flex flex-col gap-5 border border-r-2 border-black resize-x overflow-x-auto">
+        <label>ChordPro Markup</label>
+        <textarea
+          className="w-full font-mono text-xs h-full resize-y overflow-y-auto"
+          value={chordProText ?? ''}
+          onChange={(e) =>
+            setChordProText(
+              e.target.value === '' ? undefined : e.target.value,
+            )
+          }
+        />
         {(Object.keys(RENDERER_DEFAULT_STATE) as (keyof IRendererState)[]).map(
           (property) => (
             <div key={property} className="flex flex-row gap-2">
@@ -98,13 +96,13 @@ export default function App() {
         />
       </div>
       <div
-        className="w-1/2 p-4 h-screen overflow-y-auto"
+        className="grow p-4 h-screen overflow-y-auto"
         style={{ backgroundColor: state.backgroundColor }}
       >
         {tokenizedData
           ? tokenizedData.map((line, idx, arr) => (
               <div
-                className="relative"
+                className="relative w-full"
                 key={`dataLine_${idx}`}
                 style={{ color: getTextColorForLine(line, idx, arr) }}
               >
