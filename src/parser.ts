@@ -30,7 +30,7 @@ function parseLine(line: string): Token[] {
   }
   if (line.startsWith('{')) {
     const directiveRegex = /\{([a-zA-Z]+): ([a-zA-Z 0-9]+)\}/g;
-    const directiveRes = directiveRegex.exec(line);
+    const directiveRes = directiveRegex.exec(line)!;
     return [
       {
         type: 'DIRECTIVE',
@@ -48,8 +48,8 @@ function parseLine(line: string): Token[] {
       const isChord = chordProChordRegex.test(lineToken);
       if (isChord) {
         const chordProChordRegexWCaptureGroup = /(\[([a-zA-Z#0-9/]+)\])+/g;
-        const chordData = chordProChordRegexWCaptureGroup.exec(lineToken);
-        return { type: 'CHORD', chord: chordData.at(-1) };
+        const chordData = chordProChordRegexWCaptureGroup.exec(lineToken)!;
+        return { type: 'CHORD', chord: chordData.at(-1)! };
       }
       return { type: 'SONG_TEXT', text: lineToken };
     });
