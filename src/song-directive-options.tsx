@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { ColorPicker } from './color-picker';
 import { Checkbox } from './checkbox';
 import { SongDirectioOptionsObject } from './use-song-directives';
