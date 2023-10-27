@@ -34,7 +34,7 @@ export function useSongDirectives(tokenizedData: Token[][] | undefined) {
 
   useEffect(() => {
     let newColoring: SongDirectioOptionsObject = {};
-    for (let directive of songDirectives) {
+    for (let directive of (songDirectives ?? [])) {
       newColoring[directive] = {};
     }
     setSongDirectiveOptions(newColoring);

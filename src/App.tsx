@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useReducer, useState } from 'react';
+import { useCallback, useMemo, useReducer, useState } from 'react';
 import { TEST_SONG } from './data';
 import { parseDocument, Token } from './parser';
 import {
@@ -41,9 +41,9 @@ export default function App() {
       }
       if (line.every((t) => t.type !== 'DIRECTIVE')) {
         const prevDirective = lastDirective(arr, idx)?.value;
-        return (
+        return prevDirective ? (
           songDirectiveOptions[prevDirective]?.color ?? state.songTextColor
-        );
+        ) : state.songTextColor;
       }
     },
     [state, songDirectiveOptions],
