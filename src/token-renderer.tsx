@@ -62,8 +62,13 @@ export function TokenRenderer({
     default:
       return (
         <b
-          className="absolute bottom-0.5 pb-2 font-mono"
-          style={{ color: state.chordColor }}
+        style={{ color: state.chordColor }}
+        className={classNames(
+            "absolute bottom-0.5 pb-2 font-mono",
+            lastDirective && directiveColors[lastDirective]?.indent
+              ? "pl-5"
+              : undefined
+          )}
         >
           {token.chord}
         </b>
